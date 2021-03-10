@@ -1,0 +1,79 @@
+<!-- <img [src]="img" alt="">
+<input type="text" [(ngModel)] = "myInputValue">
+<p>{{myInputValue}}</p>
+<input type="text" (keyup)="onInput($event)" (blur)="onBlur(myInput.value)" #myInput>
+<p>{{inputValue}}</p> -->
+<!-- <button (click)="backgroundToggle = !backgroundToggle">Toggle</button> -->
+<!-- <p (click)="displayToggle = !displayToggle">Paragraph</p> -->
+<!-- <div [ngStyle]="{
+  width: '200px',
+  height: '200px',
+  borderRadius: '5px',
+  border: '2px solid grey',
+  backgroundColor: backgroundToggle ? 'red' : 'blue',
+  display: displayToggle ? 'block' : 'none'
+}">
+</div> -->
+
+<!-- Динамические классы -->
+<!-- <p [ngClass]="{
+  red: backgroundToggle,
+  blue: !backgroundToggle
+}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde, magni?</p> -->
+
+<!-- <p
+[class.blue]="!backgroundToggle"
+[class.red]="backgroundToggle"
+>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, inventore?</p> -->
+
+
+<!-- 5. Структкрные директивы - позволяют изменять структуру HTML шаблона. + If else statment-->
+<!-- <button (click)="toggle = !toggle">Toggle</button>
+<p *ngIf="toggle; else blueP" class="red">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus, quod.</p>
+
+<ng-template #blueP>
+  <p *ngIf="!toggle" class="blue">Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, voluptate!</p>
+</ng-template> -->
+
+<!-- <button (click)="flag = !flag">Toggle</button>
+<img *ngIf="flag; else showPara" src="{{img_2}}" alt="">
+
+<ng-template #showPara >
+  <p>My para instede og image</p>
+</ng-template> -->
+
+
+<!-- 6. Swish directive -->
+<!-- <button (click)="flag = !flag">Toggle</button>
+<button (click)="flag = 111">Set111</button>
+<div [ngSwitch]="flag">
+  <p *ngSwitchCase="true" class="red">Lorem, ipsum.</p>
+  <p *ngSwitchCase="false" class="blue">Lorem, ipsum.</p>
+  <p *ngSwitchDefault>Lorem, ipsum dolor.</p>
+</div> -->
+
+
+<!-- 7. NgFor -->
+<!-- <ul>
+  <li *ngFor="let item of arr; let idx = index">{{idx+1}}. <strong>{{item}}</strong></li>
+</ul> -->
+
+<!-- <ul style="list-style: none;">
+  <li *ngFor="let post of obj">
+    <p>{{post.title}}<b>{{post.autor}}</b></p>
+    <ul>
+      <li *ngFor="let comment of post.comments">
+        <div>
+          <small>{{comment.name}}</small>
+          <p>{{comment.text}}</p>
+        </div>
+      </li>
+    </ul>
+  </li>
+</ul> -->
+
+
+<!-- 8. Pipes -->
+<p>{{now | date}}</p>
+<app-post></app-post>
+
