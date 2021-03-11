@@ -12,7 +12,7 @@ export interface Post {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  posts:Post [] = [
+  posts: Post [] = [
     {title: 'Want to learn Angular component',
       text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus, ipsum',
       id: 1
