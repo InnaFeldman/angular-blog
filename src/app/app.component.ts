@@ -17,10 +17,10 @@ export class AppComponent {
       text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus, ipsum',
       id: 1
     },
-    {title: 'Next block ',
-      text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus, ipsum 2222',
-      id: 2
-    }
+    // {title: 'Next block ',
+    //   text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus, ipsum 2222',
+    //   id: 2
+    // }
   ]
 
   updatePosts(post:Post){
