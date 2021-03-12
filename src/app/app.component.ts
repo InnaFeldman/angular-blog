@@ -22,4 +22,10 @@ export class AppComponent {
       id: 2
     }
   ]
+
+  updatePosts(post:Post){
+    //добавляем в массив первые елемент, начало списка
+    this.posts.unshift(post);
+    console.log('Post', post)
+  }
 }

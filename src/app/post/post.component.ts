@@ -7,7 +7,7 @@ import {Post} from '../app.component';
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
-  @Input() post!: Post;
+  @Input() post!: Post; /// Я ожидаю отправленные данные, которые я сохраню в значении свойства post
 
   constructor() { }
 
