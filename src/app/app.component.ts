@@ -21,7 +21,10 @@ export class AppComponent {
       text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus, ipsum 2222',
       id: 2
     }
-  ]
+  ];
+
+  tmpPost!: Post;
+
 
   updatePosts(post:Post){
     //добавляем в массив первые елемент, начало списка
@@ -32,5 +35,13 @@ export class AppComponent {
   removePost(id:number){
     console.log('Id to', id);
     this.posts = this.posts.filter(p => p.id !== id);
+  }
+
+  postEdit(id:number){
+    //console.log('Edit id', id)
+    let edPost = this.posts.find(p => p.id === id);
+    if(edPost){
+      this.tmpPost = edPost;
+    }
   }
 }

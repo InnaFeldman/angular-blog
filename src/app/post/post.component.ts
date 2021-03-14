@@ -14,12 +14,17 @@ AfterContentInit,
 OnDestroy {
   @Input() post!: Post; /// Я ожидаю отправленные данные, которые я сохраню в значении свойства post
   @Output() onRemove = new EventEmitter<number>();
+  @Output() onEdit = new EventEmitter<number>();
   @ContentChild('info', {static: true}) infoRef!: ElementRef ///Доступ до контента
 
   constructor() { }
 
   removePost(){
     this.onRemove.emit(this.post.id)
+  }
+
+  editPost(){
+    this.onEdit.emit(this.post.id)
   }
 
   ngOnInit(): void {///hook
@@ -42,6 +47,5 @@ OnDestroy {
   ngOnDestroy(){
     //console.log('ngOnDestroy')
   }
-
 
 }

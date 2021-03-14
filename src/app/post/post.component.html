@@ -1,8 +1,16 @@
 <div class="card">
-  <h2>{{post.title}}</h2>
-  <p>{{post.text}}</p>
+  <div class="card__article">
+    <div>
+      <h2>{{post.title}}</h2>
+      <button (click)="editPost()">Edit</button>
+    </div>
 
-  <button class="btn" (click)="removePost()">&times;</button>
+    <p>{{post.text}}</p>
+    <ng-content></ng-content>
+  </div>
+  <button class="btn"
+  (click)="removePost()"
+  [ngStyle]="{backgroundColor:'red'}"
+  >&times;</button>
 
-  <ng-content></ng-content>
 </div>

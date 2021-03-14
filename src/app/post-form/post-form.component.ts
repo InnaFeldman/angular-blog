@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter,ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter,ViewChild, ElementRef, AfterViewInit, Input } from '@angular/core';
 import {Post} from '../app.component';
 
 @Component({
@@ -6,18 +6,22 @@ import {Post} from '../app.component';
   templateUrl: './post-form.component.html',
   styleUrls: ['./post-form.component.scss']
 })
-export class PostFormComponent implements OnInit {
+export class PostFormComponent implements OnInit, AfterViewInit {
   @Output() onAdd: EventEmitter<Post> = new EventEmitter<Post>();
+  @ViewChild('titleInput') inputRef!: ElementRef;
 
-  @ViewChild('titleInput', {static: true}) inputRef!:ElementRef;
-
-  title:string='';
-  text:string = '';
+  @Input() title:string='';
+  @Input() text:string = '';
 
   constructor() { }
 
   ngOnInit(): void {
-    this.inputRef.nativeElement.focus();
+  }
+
+  ngAfterViewInit(){
+    if(this.inputRef){
+      this.inputRef.nativeElement.focus();
+     }
   }
 
   addPost(){
