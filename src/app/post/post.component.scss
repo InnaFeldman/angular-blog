@@ -3,3 +3,19 @@
   justify-content: space-between;
   align-items: center;
 }
+
+h2 {
+  font-weight: bold;
+  color: red;
+}
+
+.box {
+  display: flex;
+
+  .edit_btn {
+    padding: 0.2rem 1rem;
+    margin-left: 1.5rem;
+    background-color: green;
+    color: #fff;
+  }
+}
