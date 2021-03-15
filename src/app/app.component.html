@@ -1,25 +1,9 @@
 <div class="container">
-  <h3>Posts</h3>
-  <h2>Subheader</h2>
-  <p [appStyle]="'red'" [dStyles]="{ border: '1px solid blue', borderRadius: '5px'}">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut, ipsam.
-  </p>
+  <h1>Angular Services</h1>
 
-  <!--Прописываем логику для обработки emit(output)  -->
-  <app-post-form
-    (onAdd)="updatePosts($event)"
-  ></app-post-form>
-
-  <hr />
-  <app-post *ngFor="let p of posts"[post]="p"
-   (onRemove)="removePost($event)"
-   (onEdit)="postEdit($event)"
-   >
-    <div #info>
-      <small *ngIf="p.text.length > 10; else short">Post is big</small>
-      <ng-template #short>
-        <small>Post is short</small>
-      </ng-template>
-    </div>
-  </app-post>
+  <div class="card">
+    <h2>App counter: {{appCounterService.counter}}</h2>
+    <button (click)="appCounterService.increase()" class="btn">+</button>
+    <button (click)="appCounterService.decrease()" class="btn">-</button>
+  </div>
 </div>
