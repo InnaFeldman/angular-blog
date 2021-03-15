@@ -6,4 +6,25 @@
     <button (click)="appCounterService.increase()" class="btn">+</button>
     <button (click)="appCounterService.decrease()" class="btn">-</button>
   </div>
+
+  <div class="card">
+    <h2>Local counter: {{localCounterService.counter}}</h2>
+    <button (click)="localCounterService.increase()" class="btn">+</button>
+    <button (click)="localCounterService.decrease()" class="btn">-</button>
+  </div>
+
+<div class="card">
+  <h2>App counter: {{appCounterService.counter}}</h2>
+  <button (click)="appCounterService.increase()" class="btn">+</button>
+  <button (click)="appCounterService.decrease()" class="btn">-</button>
 </div>
+
+<div class="card">
+  <h2>Local counter: {{localCounterService.counter}}</h2>
+  <button (click)="localCounterService.increase()" class="btn">+</button>
+  <button (click)="localCounterService.decrease()" class="btn">-</button>
+</div>
+</div>
+
+<hr>
+<app-counter></app-counter>
