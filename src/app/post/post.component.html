@@ -1,15 +1,15 @@
-<div class="card">
+
+<div *ngFor="let post of postServise.posts" class="card">
   <div class="card__article">
-    <div>
+    <div class="box">
       <h2>{{post.title}}</h2>
-      <button (click)="editPost()">Edit</button>
+      <button class="edit_btn">Edit</button>
     </div>
 
     <p>{{post.text}}</p>
     <ng-content></ng-content>
   </div>
   <button class="btn"
-  (click)="removePost()"
   [ngStyle]="{backgroundColor:'red'}"
   >&times;</button>
 
