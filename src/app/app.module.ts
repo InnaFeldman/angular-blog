@@ -7,13 +7,15 @@ import { PostComponent } from './post/post.component';
 import { BaseComponent } from './base/base.component';
 import { PostFormComponent } from './post-form/post-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PostFilterPipe } from './pipes/post-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostComponent,
     BaseComponent,
-    PostFormComponent
+    PostFormComponent,
+    PostFilterPipe
   ],
   imports: [
     BrowserModule,

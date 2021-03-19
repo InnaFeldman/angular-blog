@@ -1,6 +1,13 @@
 <div *ngIf="!loading">
+  <!-- Searching -->
+  <div class="filter">
+    <input type="text" placeholder="Search..."
+    class="search"
+    [(ngModel)] = "searchString">
+  </div>
+  <!-- Searching end-->
 <div class="wrapper" *ngIf="postService.posts.length; else noPost">
-<div *ngFor="let post of postService.posts" class="card">
+<div *ngFor="let post of postService.posts | postFilter: searchString" class="card">
   <div class="card__article">
     <div class="box">
       <h2>{{post.title}}</h2>
@@ -10,7 +17,7 @@
     <p>{{post.body}}</p>
     <ng-content></ng-content>
   </div>
-  <button (click)="removePost(post.id)" class="btn"
+  <button class="btn"
   [ngStyle]="{backgroundColor:'red'}"
   >&times;</button>
 </div>

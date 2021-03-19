@@ -10,6 +10,7 @@ import{PostService} from '../services/post.service';
 })
 export class PostComponent implements OnInit {
   public loading: boolean = true;
+  searchString: string = "";
 
   constructor(public postService: PostService){}
 
