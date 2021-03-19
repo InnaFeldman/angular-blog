@@ -7,7 +7,6 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./post-form.component.scss']
 })
 export class PostFormComponent implements OnInit {
-  //@Output() onAdd: EventEmitter<Post> = new EventEmitter<Post>();
 
   constructor(private postService: PostService) { }
 

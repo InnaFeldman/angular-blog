@@ -1,16 +1,24 @@
-
-<div *ngFor="let post of postServise.posts" class="card">
+<div *ngIf="!loading">
+<div class="wrapper" *ngIf="postService.posts.length; else noPost">
+<div *ngFor="let post of postService.posts" class="card">
   <div class="card__article">
     <div class="box">
       <h2>{{post.title}}</h2>
       <button class="edit_btn">Edit</button>
     </div>
 
-    <p>{{post.text}}</p>
+    <p>{{post.body}}</p>
     <ng-content></ng-content>
   </div>
-  <button class="btn"
+  <button (click)="removePost(post.id)" class="btn"
   [ngStyle]="{backgroundColor:'red'}"
   >&times;</button>
-
 </div>
+</div>
+
+<ng-template #noPost>
+ <h2 class="noPost_title">There is no post!!!</h2>
+</ng-template>
+</div>
+<p *ngIf="loading">Loading...</p>
+

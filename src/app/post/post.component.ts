@@ -8,13 +8,19 @@ import{PostService} from '../services/post.service';
 
 })
 export class PostComponent implements OnInit {
+  public loading: boolean = true;
 
-  constructor(public postServise: PostService){}
+  constructor(public postService: PostService){}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.postService.fetchPosts().subscribe(()=>{
+      this.loading = false;///data is loaded
+    });
+  }
 
   removePost(id: number) {
-    this.postServise.removePost(id);
+    console.log(id);
+    this.postService.removePost(id);
   }
 
 }

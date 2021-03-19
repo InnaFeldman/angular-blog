@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { PostComponent } from './post/post.component';
 import { BaseComponent } from './base/base.component';
 import { PostFormComponent } from './post-form/post-form.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PostFormComponent } from './post-form/post-form.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

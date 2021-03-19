@@ -1,28 +1,29 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http'
+import { Observable } from 'rxjs';
+import {tap} from 'rxjs/operators';
 
 export interface Post {
   title: string,
-  text: string,
+  body: string,
   id?: number
 }
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  public posts: Post [] = [
-    {title: 'Want to learn Angular component',
-      text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus, ipsum',
-      id: 1
-    },
-    {title: 'Next block ',
-      text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus, ipsum 2222',
-      id: 2
-    }
-  ];
 
-  constructor() { }
+  public posts: Post [] = [];
+
+  constructor(private http: HttpClient) { }
+
+  fetchPosts(): Observable<Post[]>{
+    return this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts?_limit=3')///fetch data from external database
+    .pipe(tap(posts => this.posts = posts)) /// Saving data in array
+  }
 
   removePost(id: number){
+    console.log(id);
     this.posts = this.posts.filter(p => p.id !== id);
   }
 }
