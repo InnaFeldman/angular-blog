@@ -1,4 +1,5 @@
 import {Component,OnInit,} from '@angular/core';
+import { delay } from 'rxjs/operators';
 import{PostService} from '../services/post.service';
 
 @Component({
@@ -13,7 +14,9 @@ export class PostComponent implements OnInit {
   constructor(public postService: PostService){}
 
   ngOnInit(): void {
-    this.postService.fetchPosts().subscribe(()=>{
+    this.postService.fetchPosts()
+    .pipe(delay(500))
+    .subscribe(()=>{
       this.loading = false;///data is loaded
     });
   }

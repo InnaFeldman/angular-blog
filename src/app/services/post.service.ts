@@ -26,4 +26,7 @@ export class PostService {
     console.log(id);
     this.posts = this.posts.filter(p => p.id !== id);
   }
+  addPost(post: Post){
+    this.posts.push(post);
+  }
 }

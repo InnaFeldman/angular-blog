@@ -3,16 +3,17 @@
   type="text"
   class="form-control"
   placeholder="Title..."
-
-  #titleInput
+  [(ngModel)] ="title"
+  (keydown.enter)="addPost()"
   >
   <input
   type="text"
   class="form-control"
   placeholder="Text..."
-
+  [(ngModel)] ="body"
+  (keydown.enter)="addPost()"
   >
 
-  <button class="btn" >Add post</button>
+  <button (click)="addPost()" class="btn">Add post</button>
   <!-- <button class="btn" (click)="focusTitle()">Focus title</button>  (click)="addPost()"-->
 </div>
