@@ -42,6 +42,7 @@ export class AppComponent {
     let edPost = this.posts.find(p => p.id === id);
     if(edPost){
       this.tmpPost = edPost;
+      console.log(edPost);
     }
   }
 }

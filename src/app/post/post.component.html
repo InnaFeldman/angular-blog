@@ -1,16 +1,25 @@
-<div class="card">
-  <div class="card__article">
-    <div class="box">
-      <h2>{{post.title}}</h2>
-      <button (click)="editPost()" class="edit_btn">Edit</button>
+<div class="wrapper">
+  <div class="card">
+    <div class="card__article">
+      <div class="box">
+        <h2>{{post.title}}</h2>
+        <button (click)="editPost()" class="edit_btn">Edit</button>
+      </div>
+
+      <p>{{post.text}}</p>
+      <ng-content></ng-content>
     </div>
-
-    <p>{{post.text}}</p>
-    <ng-content></ng-content>
+    <button class="btn"
+    (click)="removePost()"
+    [ngStyle]="{backgroundColor:'red'}"
+    >&times;</button>
   </div>
-  <button class="btn"
-  (click)="removePost()"
-  [ngStyle]="{backgroundColor:'red'}"
-  >&times;</button>
+</div>
 
+<div class="popup" *ngIf="toggle">
+  <h2>Edit Post</h2>
+  <input type="text" [(ngModel)]="post.title">
+  <input type="text" [(ngModel)]="post.text">
+  <button class="btn" (click)="close()">Close</button>
+  <button class="btn" (click)="save()">Save</button>
 </div>

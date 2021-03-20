@@ -1,3 +1,7 @@
+.wrapper {
+  position: relative;
+}
+
 .card {
   display: flex;
   justify-content: space-between;
@@ -18,4 +22,11 @@ h2 {
     background-color: green;
     color: #fff;
   }
+}
+
+.popup {
+ position: absolute;
+ display: block;
+ bottom: 25%;
+ width: 30%;
 }

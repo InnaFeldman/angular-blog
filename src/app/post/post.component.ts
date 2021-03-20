@@ -31,8 +31,11 @@ OnDestroy {
   @Input() post!: Post; /// Я ожидаю отправленные данные, которые я сохраню в значении свойства post
   @Output() onRemove = new EventEmitter<number>();
   @Output() onEdit = new EventEmitter<number>();
+  @Output() onSave = new EventEmitter<number>();
   @ContentChild('info', {static: true}) infoRef!: ElementRef ///Доступ до контента
 
+  toggle: boolean = false;
+  dataStore: Post[] = [];
   constructor() { }
 
   removePost(){
@@ -40,7 +43,18 @@ OnDestroy {
   }
 
   editPost(){
+    this.toggle = !this.toggle;
+
     this.onEdit.emit(this.post.id)
+  }
+
+  close(){
+    this.toggle = !this.toggle;
+  }
+
+  save(){
+    //this.dataStore = JSON.parse(JSON.stringify(this.post));
+    //console.log('dataStore',  this.dataStore)
   }
 
   ngOnInit(): void {///hook
