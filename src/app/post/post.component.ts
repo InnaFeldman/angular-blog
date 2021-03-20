@@ -8,8 +8,8 @@ import{Post, PostService} from '../services/post.service';
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
-
 })
+
 export class PostComponent implements OnInit {
   public loading: boolean = true;
   searchString: string = "";
@@ -25,7 +25,7 @@ export class PostComponent implements OnInit {
   }
 
   removePost(id: number) {
-    console.log(id);
+    //console.log(id);
     this.postService.removePost(id);
   }
 
@@ -42,7 +42,6 @@ export class PostComponent implements OnInit {
         this.postService.updatedPost(index, result);
       }
     })
-
     //console.log(index);
   }
 

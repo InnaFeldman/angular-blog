@@ -1,4 +1,4 @@
-<h1>Edit Post!</h1>
+<h1>Edit Post {{post.title}}!</h1>
 <div mat-dialog-content>
   <form #form="ngForm" (ngSubmit)="onFormSubmit(form)">
     <div class="field">
@@ -10,10 +10,10 @@
     <br>
     <div class="mat-dialog-actions">
       <div class="control">
-        <button type="button" class="btn is-light" (click)=close()>Close</button>
+        <button type="button" class="btn btn-close" (click)=close()>Close</button>
       </div>
       <div class="control">
-        <button type="submit" class="btn">Save</button>
+        <button type="submit" class="btn btn-save">Save</button>
       </div>
     </div>
   </form>

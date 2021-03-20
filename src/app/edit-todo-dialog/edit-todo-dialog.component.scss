@@ -1,0 +1,14 @@
+.mat-dialog-content {
+  max-height: unset;
+  min-height: 15rem;
+}
+
+.btn {
+  &-close {
+    background-color: red;
+  }
+
+  &-save {
+    background-color: green;
+  }
+}

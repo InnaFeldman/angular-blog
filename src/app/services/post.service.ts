@@ -6,7 +6,7 @@ import {tap} from 'rxjs/operators';
 export interface Post {
   title: string,
   body: string,
-  id?: number
+  id: number
 }
 @Injectable({
   providedIn: 'root'

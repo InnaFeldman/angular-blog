@@ -17,7 +17,7 @@
     <p>{{post.body}}</p>
     <ng-content></ng-content>
   </div>
-  <button class="btn remove"
+  <button (click)="removePost(post.id)" class="btn remove"
   [ngStyle]="{backgroundColor:'red'}"
   >&times;</button>
 </div>
