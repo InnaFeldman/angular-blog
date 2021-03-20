@@ -11,13 +11,13 @@
   <div class="card__article">
     <div class="box">
       <h2>{{post.title}}</h2>
-      <button class="edit_btn">Edit</button>
+      <button (click)="editPost(post)" class="edit_btn">Edit</button>
     </div>
 
     <p>{{post.body}}</p>
     <ng-content></ng-content>
   </div>
-  <button class="btn"
+  <button class="btn remove"
   [ngStyle]="{backgroundColor:'red'}"
   >&times;</button>
 </div>

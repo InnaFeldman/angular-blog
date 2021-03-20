@@ -1,6 +1,8 @@
 import {Component,OnInit,} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { delay } from 'rxjs/operators';
-import{PostService} from '../services/post.service';
+import { EditTodoDialogComponent } from '../edit-todo-dialog/edit-todo-dialog.component';
+import{Post, PostService} from '../services/post.service';
 
 @Component({
   selector: 'app-post',
@@ -12,7 +14,7 @@ export class PostComponent implements OnInit {
   public loading: boolean = true;
   searchString: string = "";
 
-  constructor(public postService: PostService){}
+  constructor(public postService: PostService, private dialog:MatDialog){}
 
   ngOnInit(): void {
     this.postService.fetchPosts()
@@ -25,6 +27,23 @@ export class PostComponent implements OnInit {
   removePost(id: number) {
     console.log(id);
     this.postService.removePost(id);
+  }
+
+  editPost(post: Post){
+    const index = this.postService.posts.indexOf(post);
+
+    let dialogRef = this.dialog.open(EditTodoDialogComponent, {
+      width: '700px',
+      data: post
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if(result){
+        this.postService.updatedPost(index, result);
+      }
+    })
+
+    //console.log(index);
   }
 
 }
