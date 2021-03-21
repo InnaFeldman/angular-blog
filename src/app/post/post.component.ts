@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { delay } from 'rxjs/operators';
 import { EditTodoDialogComponent } from '../edit-todo-dialog/edit-todo-dialog.component';
 import{Post, PostService} from '../services/post.service';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-post',
@@ -30,11 +31,12 @@ export class PostComponent implements OnInit {
   }
 
   editPost(post: Post){
+    let clonePost = _.cloneDeep(post);
     const index = this.postService.posts.indexOf(post);
 
     let dialogRef = this.dialog.open(EditTodoDialogComponent, {
       width: '700px',
-      data: post
+      data: clonePost
     });
 
     dialogRef.afterClosed().subscribe((result) => {
@@ -42,7 +44,7 @@ export class PostComponent implements OnInit {
         this.postService.updatedPost(index, result);
       }
     })
-    //console.log(index);
+    console.log(index);
   }
 
 }

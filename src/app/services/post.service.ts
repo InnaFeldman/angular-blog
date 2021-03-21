@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { Observable } from 'rxjs';
 import {tap} from 'rxjs/operators';
+import * as _ from 'lodash';
+
 
 export interface Post {
   title: string,
@@ -33,6 +35,5 @@ export class PostService {
 
   updatedPost(index: number, updatedPost: Post){
     this.posts[index] = updatedPost;
-    //console.log(updatedPost);
   }
 }
