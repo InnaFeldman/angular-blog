@@ -12,7 +12,11 @@ form!: FormGroup;
   ngOnInit(){
     this.form = new FormGroup({
       email: new FormControl('', [Validators.email, Validators.required]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(6)])
+      password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
+      address: new FormControl({
+        country: new FormControl('usa'),
+        city: new FormControl('', Validators.required)
+      })
     })
   }
 

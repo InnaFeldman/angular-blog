@@ -6,10 +6,10 @@
       <label>Email</label>
       <input type="text" placeholder="Email" formControlName="email">
       <div
-      *ngIf="form.get('email').invalid && form.get('email').touched"
        class="validation"
        >
-      <small>email is not valid</small>
+      <small>
+        email is not valid</small>
     </div>
     </div>
 
@@ -19,21 +19,21 @@
       <div class="validation"></div>
     </div>
 
-    <div class="card">
+    <div class="card" formGroupName="address">
       <h2>Аddress</h2>
 
       <div class="form-control">
         <label>Contry</label>
 
-        <select>
-          <option value="ru">USA</option>
-          <option value="ua">Canada</option>
-          <option value="by">Uk</option>
+        <select formControllName="country">
+          <option value="usa">USA</option>
+          <option value="ca">Canada</option>
+          <option value="uk">Uk</option>
         </select>
       </div>
 
-      <div class="form-control">
-        <input type="text">
+      <div class="form-control" >
+        <input type="text" formControllName="city" placeholder="city">
       </div>
 
       <button class="btn" type="button">Choose capital</button>
@@ -52,6 +52,7 @@
 
   </form>
 </div>
-
-
+<!-- *ngIf="form.get('email').invalid && form.get('email').touched" -->
+<!-- <small *ngIf="form.get('email).errors.required">
+  email is not valid</small> -->
 
