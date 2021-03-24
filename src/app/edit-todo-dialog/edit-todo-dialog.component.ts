@@ -28,7 +28,7 @@ export class EditTodoDialogComponent implements OnInit {
       ...this.post,
       ...form.value
     }
-    this.dialogRef.close(updatedPost)
+    this.dialogRef.close(updatedPost);
   }
 
 }

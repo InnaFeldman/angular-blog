@@ -44,7 +44,7 @@ export class PostComponent implements OnInit {
         this.postService.updatedPost(index, result);
       }
     })
-    console.log(index);
+    //console.log(index);
   }
 
 }
