@@ -1,48 +1,26 @@
-import { Component } from '@angular/core';
-
-export interface Post {
-  title: string,
-  text: string,
-  id?: number
-}
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  posts: Post [] = [
-    {title: 'Want to learn Angular component',
-      text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus, ipsum',
-      id: 1
-    },
-    {title: 'Next block ',
-      text: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus, ipsum 2222',
-      id: 2
-    }
-  ];
+export class AppComponent implements OnInit{
+form!: FormGroup;
 
-  tmpPost!: Post;
-
-
-  updatePosts(post:Post){
-    //добавляем в массив первые елемент, начало списка
-    this.posts.unshift(post);
-    console.log('Post', post)
+  ngOnInit(){
+    this.form = new FormGroup({
+      email: new FormControl('', [Validators.email, Validators.required]),
+      password: new FormControl(null, [Validators.required, Validators.minLength(6)])
+    })
   }
 
-  removePost(id:number){
-    console.log('Id to', id);
-    this.posts = this.posts.filter(p => p.id !== id);
-  }
-
-  postEdit(id:number){
-    //console.log('Edit id', id)
-    let edPost = this.posts.find(p => p.id === id);
-    if(edPost){
-      this.tmpPost = edPost;
-      console.log(edPost);
+  submit(){
+    if(this.form.valid) {
+      console.log('form', this.form);
+      const formData = {...this.form.value};
+      console.log('formdata', formData)
     }
   }
 }
