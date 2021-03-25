@@ -7,6 +7,7 @@ import { PostComponent } from './post/post.component';
 import { BaseComponent } from './base/base.component';
 import { PostFormComponent } from './post-form/post-form.component';
 import {StyleDirective} from './directives/style.directive';
+import { ConsolelogPipe } from './consolelog.pipe';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import {StyleDirective} from './directives/style.directive';
     PostComponent,
     BaseComponent,
     PostFormComponent,
-    StyleDirective
+    StyleDirective,
+    ConsolelogPipe
   ],
   imports: [
     BrowserModule,
